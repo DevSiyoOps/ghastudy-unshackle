@@ -1,0 +1,2710 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Movie, TV, and Music archival software. User guide and REST API reference">
+      
+      
+      
+        <link rel="canonical" href="https://docs.unshackle.dev/dev/rest-api/dashboard/">
+      
+      
+        <link rel="prev" href="../job-lifecycle/">
+      
+      
+        <link rel="next" href="../remote-sessions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Dashboard - unshackle</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developer-dashboard" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="unshackle" class="md-header__button md-logo" aria-label="unshackle" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m800-274-80-80v-206H514l-80-80h166v-80q0-50-34.5-85T481-840q-50 0-84 34.5T363-720v9l-73-73q22-61 75-98.5T481-920q83 0 141 58.5T680-720v80h40q33 0 56.5 23.5T800-560v286Zm20 246-62-62q-11 5-20 7.5T720-80H240q-33 0-56.5-23.5T160-160v-400q0-25 14.5-46t37.5-30L28-820l56-56L876-84l-56 56ZM686-160 539-309q-11 11-25.5 17t-31.5 6q-33 0-56.5-23.5T402-366q0-17 6-31.5t17-25.5L286-560h-46v400h446ZM486-360Zm131-97Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            unshackle
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dashboard
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/unshackle-dl/unshackle" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    unshackle-dl/unshackle
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/downloading/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../reference/configuration/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Configuration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../creating-a-service/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Developer
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../reference/api/service/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="unshackle" class="md-nav__button md-logo" aria-label="unshackle" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m800-274-80-80v-206H514l-80-80h166v-80q0-50-34.5-85T481-840q-50 0-84 34.5T363-720v9l-73-73q22-61 75-98.5T481-920q83 0 141 58.5T680-720v80h40q33 0 56.5 23.5T800-560v286Zm20 246-62-62q-11 5-20 7.5T720-80H240q-33 0-56.5-23.5T160-160v-400q0-25 14.5-46t37.5-30L28-820l56-56L876-84l-56 56ZM686-160 539-309q-11 11-25.5 17t-31.5 6q-33 0-56.5-23.5T402-366q0-17 6-31.5t17-25.5L286-560h-46v400h446ZM486-360Zm131-97Z"/></svg>
+
+    </a>
+    unshackle
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/unshackle-dl/unshackle" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    unshackle-dl/unshackle
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/configuration-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Configuration File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/downloading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Downloading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/cli-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/drm-and-cdm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DRM & CDM Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/proxies-and-vpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxies & VPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/vaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Key Vaults
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/output-and-naming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output & Naming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/subtitles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subtitles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../reference/configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/configuration/directories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/configuration/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services & Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/configuration/download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Download & Processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/configuration/output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output & Naming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/configuration/drm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DRM & CDM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/configuration/network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network & Proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/configuration/vaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Key Vaults
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/configuration/post-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/configuration/misc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/configuration/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../creating-a-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating a Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REST API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../endpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Endpoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Job Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event stream
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-session-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote session logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cdm-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDM calls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keys
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#counters-reset-on-restart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters reset on restart
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../remote-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remote Sessions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Responses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/api/service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/api/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/api/tracks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/api/titles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Titles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/api/drm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DRM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event stream
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-session-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote session logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cdm-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDM calls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keys
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#counters-reset-on-restart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counters reset on restart
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="developer-dashboard">Developer Dashboard<a class="headerlink" href="#developer-dashboard" title="Permanent link">&para;</a></h1>
+<p>The dashboard endpoints show the operator of a <code>serve</code> instance what the server is doing:
+version and uptime, request counts, live remote sessions, download jobs, and the recent
+log lines. They exist so you can watch a headless server (<code>serve --quiet</code>) from a web page
+instead of a terminal.</p>
+<p>The dashboard endpoints are for the person who runs the server, not for API users. They
+have their own key: a user key or a tier key never opens them.</p>
+<h2 id="enable">Enable<a class="headerlink" href="#enable" title="Permanent link">&para;</a></h2>
+<p>Set a dashboard key under <code>serve.dashboard</code> in <code>unshackle.yaml</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">serve</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">api_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">dashboard</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">a-long-random-string</span>
+</span></code></pre></div>
+<p>Without <code>dashboard.key</code> the server does not register the routes, and they answer <code>404</code>.
+<code>serve --no-key</code> turns off user authentication only; the dashboard key stays required.
+Once the dashboard key is set, every <code>/api/dashboard/</code> request must carry it in
+<code>X-Secret-Key</code>.
+Every other endpoint refuses the dashboard key, and the dashboard refuses user keys. The
+routes are available in <code>--remote-only</code> mode too.</p>
+<p>Run the server headless with <code>--quiet</code>: no banner, no Rich output, one plain log line per
+event on stderr, and <code>api.*</code> loggers stay at <code>INFO</code> so remote session activity reaches the
+log ring. Add <code>--debug</code> to raise the level to <code>DEBUG</code> and also write the full log to
+<code>directories.logs</code> as <code>unshackle_serve_&lt;time&gt;.log</code>. Nothing else the dashboard shows reaches
+the disk: stats, the log ring and the event stream live in memory and reset on restart, so a
+dashboard UI that wants history must keep its own copy.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>unshackle serve --remote-only --quiet
+</span></code></pre></div>
+<h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Permanent link">&para;</a></h2>
+<p>All are <code>GET</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/api/dashboard/status</code></td>
+<td>Version, <code>code_hash</code>, bind host and port, <code>mode</code> (<code>full</code>, <code>api_only</code>, <code>remote_only</code>), uptime, <code>requests_total</code>, <code>requests_rejected</code> (401s), <code>requests_by_key</code> (label → count), configured service count (the same services as <code>/api/dashboard/services</code>), session count, <code>max_sessions</code> (<code>null</code> when the operator configured no limit), <code>session_ttl</code>, job counts by status. The service count includes services that failed to import - use <code>/api/dashboard/services</code> for the number that loaded.</td>
+</tr>
+<tr>
+<td><code>/api/dashboard/sessions</code></td>
+<td>Every live remote session: <code>id</code>, <code>owner</code> (username or masked key), <code>creator_ip</code>, <code>service</code>, <code>title_id</code>, <code>titles</code>, <code>tracks</code>, <code>title</code> (the display name of the title the client is on: the last one it asked tracks for, else the first resolved title), <code>auth_status</code>, <code>auth_error</code>, <code>server_account</code> (the server profile lent to the remote session, else <code>null</code>), <code>server_cdm</code> (<code>false</code> when the client's own device licenses the remote session), <code>server_cdm_max_height</code> (the tallest video the server CDM licenses live, else <code>null</code>), <code>client</code>, <code>actions</code>, <code>created_at</code> and <code>last_accessed</code> (ISO 8601) with <code>created_ts</code> and <code>last_accessed_ts</code> (Unix epoch, the same clock as log <code>ts</code>), <code>age_seconds</code>, <code>idle_seconds</code>, <code>log_seq</code>. <code>client</code> is whatever the remote client sent as <code>client</code> in its session create request. The CLI sends <code>version</code>, <code>code_hash</code> (the commit the client runs, <code>null</code> when its source cannot be read), <code>platform</code> and <code>argv</code>. <code>argv</code> is the command line the user ran: proxy and URL userinfo, secret query parameters and credential values become <code>***</code>, home and install paths shorten as in the logs, and the line is cut at 3000 characters. An older client sends less or nothing and the field is <code>{}</code>. <code>log_seq</code> is the last sequence number in the remote session's service log - poll <code>/api/dashboard/sessions/{id}/logs</code> when it changes. <code>actions</code> is the session's request log, newest last, capped at 500: <code>ts</code>, <code>method</code>, <code>action</code> (<code>titles</code>, <code>tracks</code>, <code>segments</code>, <code>license</code>, <code>prompt</code>, …), <code>query</code>, <code>status</code>, <code>ms</code>, <code>bytes_in</code>, <code>bytes_out</code>.</td>
+</tr>
+<tr>
+<td><code>/api/dashboard/jobs</code></td>
+<td>Every download job with full detail, regardless of owner. Empty in <code>--remote-only</code> mode.</td>
+</tr>
+<tr>
+<td><code>/api/dashboard/logs</code></td>
+<td><code>{"seq": N, "records": [...]}</code>: the last 1000 log records. <code>?since=&lt;seq&gt;</code> returns only newer records; <code>?level=WARNING</code> sets the minimum level; <code>?logger=serve</code> keeps one logger and its children (<code>aiohttp.access</code> is the noisiest). <code>ts</code> is a Unix epoch in seconds.</td>
+</tr>
+<tr>
+<td><code>/api/dashboard/cdm-logs</code></td>
+<td><code>{"seq": N, "records": [...], "sessions": [...]}</code>: the last 5000 calls to the Widevine and PlayReady CDM device routes, and the open sessions of each device. <code>?since=&lt;seq&gt;</code> returns only newer records. See <a href="#cdm-calls">CDM calls</a>.</td>
+</tr>
+<tr>
+<td><code>/api/dashboard/sessions/{id}/logs</code></td>
+<td>One remote session's service log: <code>{"session_id", "last_seq", "records": [...]}</code>. Each record has <code>seq</code>, <code>ts</code>, <code>level</code>, <code>message</code>. <code>?since=&lt;seq&gt;</code> returns only newer records. 404 when the remote session is unknown.</td>
+</tr>
+<tr>
+<td><code>/api/dashboard/keys</code></td>
+<td>Every configured API key: what it may do and what it has done. One row per key in <code>serve.users</code>, plus <code>serve.api_secret</code> when it is set.</td>
+</tr>
+<tr>
+<td><code>/api/dashboard/services</code></td>
+<td>Every service configured on this server and its load state, including the ones that failed to import. See <a href="#services">Services</a> for what configured means.</td>
+</tr>
+<tr>
+<td><code>/api/dashboard/health</code></td>
+<td>Preflight: whether this instance could finish a download. Cached 30 seconds.</td>
+</tr>
+<tr>
+<td><code>/api/dashboard/events</code></td>
+<td>Server-Sent Events stream. With <code>?since=&lt;seq&gt;</code> it returns <code>{"seq", "stats", "events": [...]}</code> instead: every event after <code>seq</code> (the server keeps the last 20000, log records included, so a poll every few seconds is safe even under a busy access log) as one JSON burst, so a UI that polls every few seconds still sees a remote session that opened and closed in between.</td>
+</tr>
+</tbody>
+</table>
+<p><code>requests_rejected</code> counts 401 responses; those never appear in <code>requests_by_key</code>. The
+label is the <code>username</code> from the <code>users</code> entry when one is set, else the first four
+characters of the API key.</p>
+<h2 id="event-stream">Event stream<a class="headerlink" href="#event-stream" title="Permanent link">&para;</a></h2>
+<p><code>/api/dashboard/events</code> sends a <code>stats</code> event (the same body as <code>/status</code>) on connect and
+then every 5 seconds, so the connection stays alive and the counters stay current. Between
+those it sends:</p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>log</code></td>
+<td>One log record: <code>seq</code>, <code>ts</code>, <code>level</code>, <code>logger</code>, <code>msg</code>.</td>
+</tr>
+<tr>
+<td><code>session</code></td>
+<td><code>action</code> (<code>create</code>, <code>update</code> on every request the session makes and when titles or tracks load, or <code>delete</code>) plus the full remote session summary, so each event is a complete snapshot. A <code>delete</code> also carries <code>reason</code>: <code>closed</code> (the client ended it), <code>expired</code> (TTL sweep) or <code>evicted</code> (<code>max_sessions</code> reached). A session opened by <code>--skip-dl</code> can live only a few seconds, so a UI that wants history must keep its own record of these events.</td>
+</tr>
+<tr>
+<td><code>job</code></td>
+<td><code>event</code> (<code>queued</code>, <code>progress</code>, <code>status</code>, or the terminal status) plus the full job object.</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>action</code> (<code>staged</code>, <code>applied</code> or <code>failed</code>) and <code>tags</code>, the services it applies to. A <code>failed</code> action carries <code>errors</code> and an empty <code>tags</code>. Refetch <code>/api/dashboard/services</code> when one arrives, instead of polling for a reload.</td>
+</tr>
+</tbody>
+</table>
+<p>Every frame carries an <code>id:</code> (the event seq). After a dropped connection an <code>EventSource</code>
+reconnects with <code>Last-Event-ID</code> and the server replays the events it missed. The connection
+never closes on its own.</p>
+<p>A browser <code>EventSource</code> cannot set headers, so this route also accepts the dashboard key as
+<code>?secret_key=</code>. The dashboard key then appears in proxy and access logs and in browser history, so
+use the query parameter only for <code>/events</code> and send the header everywhere else.</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">es</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EventSource</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">server</span><span class="si">}</span><span class="sb">/api/dashboard/events?secret_key=</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nx">es</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"log"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">).</span><span class="nx">msg</span><span class="p">));</span>
+</span></code></pre></div>
+<p>CORS is open (<code>Access-Control-Allow-Origin: *</code>), so a dashboard page served from another
+origin works without a proxy.</p>
+<h2 id="remote-session-logs">Remote session logs<a class="headerlink" href="#remote-session-logs" title="Permanent link">&para;</a></h2>
+<p>A remote session mirrors the service's own <code>self.log</code> into a 500-record buffer at <code>INFO</code>,
+whatever level the server prints at. The remote session summary carries only a truncated
+<code>auth_error</code>; the buffer holds the real reason a login failed.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>GET /api/dashboard/sessions/{session_id}/logs?since=12
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>{"session_id": "...", "last_seq": 14,
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> "records": [{"seq": 13, "ts": 1756909254.1, "level": "ERROR", "message": "login rejected: MFA required"}]}
+</span></code></pre></div>
+<p>The field name is <code>records</code>, the same one <code>/api/dashboard/logs</code> uses, so one dashboard reads
+both logs the same way. Each record has the shape the client route <code>/api/session/{id}/logs</code>
+returns. <code>last_seq</code> is the buffer's own last sequence number, so an empty page still reports
+the true value.</p>
+<p>Reading is a cursor read, not a drain: the client draining the same buffer still gets every
+record. It also does not refresh the remote session's idle timer, so polling a remote session here
+never keeps it alive or makes it look active.</p>
+<div class="admonition note">
+<p class="admonition-title"><code>log_seq</code> is a poll trigger, not a push</p>
+<p>A remote session summary reaches the dashboard only when something publishes a <code>session</code>
+event - a request the remote session makes, or an auth transition. A log line on its own
+publishes nothing. Poll this route when <code>log_seq</code> changes, and on a timer while a drawer
+is open.</p>
+</div>
+<h2 id="cdm-calls">CDM calls<a class="headerlink" href="#cdm-calls" title="Permanent link">&para;</a></h2>
+<p>A server in <code>full</code> mode also mounts the Widevine CDM device routes at <code>/{device}/...</code> and the
+PlayReady ones at <code>/playready/{device}/...</code>. The server records each call to these routes in
+a 5000-record buffer of its own, apart from the log records of <code>/api/dashboard/logs</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GET /api/dashboard/cdm-logs?since=1230
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>{"seq": 1231,
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> "records": [{"seq": 1231, "ts": 1759750000.123, "drm": "widevine", "op": "get_license_challenge",
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>              "device": "chrome_l3", "key_id": "ab12cd34ef56", "user": "tier1",
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>              "session_id": "0a1b2c3d4e5f60718293a4b5c6d7e8f9",
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>              "status": 200, "ok": true, "error": null, "ms": 12.4}],
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a> "sessions": [{"drm": "widevine", "device": "chrome_l3", "key_id": "ab12cd34ef56", "user": "tier1",
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>               "open": 3, "max": 17}]}
+</span></code></pre></div>
+<p><code>since</code> and <code>seq</code> work as they do for <code>/api/dashboard/logs</code>: <code>records</code> holds the calls with a
+<code>seq</code> above <code>since</code>, oldest first. <code>seq</code> starts again at 1 when the server restarts, so a <code>seq</code>
+below your cursor means a restart: read again from 0.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ts</code></td>
+<td>Unix epoch in seconds, when the call arrived.</td>
+</tr>
+<tr>
+<td><code>drm</code></td>
+<td><code>widevine</code>, or <code>playready</code> for a route below <code>/playready/</code>.</td>
+</tr>
+<tr>
+<td><code>op</code></td>
+<td><code>open</code>, <code>close</code>, <code>set_service_certificate</code>, <code>get_service_certificate</code>, <code>get_license_challenge</code>, <code>parse_license</code> or <code>get_keys</code>. The licence type or content key type that follows in the path is not part of it.</td>
+</tr>
+<tr>
+<td><code>device</code></td>
+<td>The device name from the path, cut at 255 characters.</td>
+</tr>
+<tr>
+<td><code>key_id</code>, <code>user</code></td>
+<td>The <code>id</code> and <code>label</code> of the caller's row in <code>/api/dashboard/keys</code>. Both are <code>anonymous</code> when the API key is missing or unknown.</td>
+</tr>
+<tr>
+<td><code>session_id</code></td>
+<td>The CDM session, lowercase hexadecimal, so the calls of one licence exchange group together. <code>null</code> when there is none, for example a refused <code>open</code>.</td>
+</tr>
+<tr>
+<td><code>status</code>, <code>ok</code></td>
+<td>The HTTP status of the reply. <code>ok</code> is <code>true</code> below 400.</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td><code>null</code> when <code>ok</code>. Otherwise the <code>message</code> of the reply, cut at 300 characters. A handler that raised an error gives the error's class name only.</td>
+</tr>
+<tr>
+<td><code>ms</code></td>
+<td>Time the server took to answer, in milliseconds.</td>
+</tr>
+</tbody>
+</table>
+<p>A record never holds the API key, <code>init_data</code>, a challenge, a certificate, a licence body or a
+content key. A refused call is in the log too, a 401 for a missing or unknown API key included.</p>
+<p><code>sessions</code> is a snapshot at read time, not a history. It has one row for each device an API
+key has opened since the server started: <code>open</code> is the number of sessions open now, and <code>max</code>
+is the number of sessions the device permits at one time. A PlayReady session older than the
+library's session timeout does not count: the library drops it on the next <code>open</code>. The
+list is <code>[]</code> until the first <code>open</code>, and on a server that mounts no CDM device routes.</p>
+<div class="admonition note">
+<p class="admonition-title">Polled only</p>
+<p>The event stream does not carry these records. One licence exchange is five calls, and that
+volume would push <code>session</code> events out of the stream's history.</p>
+</div>
+<h2 id="keys">Keys<a class="headerlink" href="#keys" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>GET /api/dashboard/keys
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>[{"id": "3ed054be9371", "role": "user", "label": "tier1", "services": ["EXAMPLE", "DEMO"],
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  "server_cdm": false, "server_cdm_max_height": null, "server_accounts": false, "server_proxy": false,
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  "tier": "bot", "rate_limit": 600, "window_used": 412,
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  "requests": 41300, "rejected": 4, "bytes_out": 103079215104, "last_seen": 1756909188.2},
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a> {"id": "7c1d0f52a884", "role": "dashboard", "label": "dash…", "services": [],
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  "server_cdm": false, "server_cdm_max_height": null, "server_accounts": false, "server_proxy": false,
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  "tier": null, "rate_limit": null, "window_used": 0,
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  "requests": 8140, "rejected": 0, "bytes_out": 41200311, "last_seen": 1756909350.9}]
+</span></code></pre></div>
+<p><code>id</code> is a hash of the API key, so it stays stable across restarts and carries no key material.
+Two API keys with no <code>username</code> merge into one label in <code>requests_by_key</code> but stay separate
+here, so use <code>id</code> as the identity and <code>label</code> only for display.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>role</code></td>
+<td>Which key this is: <code>user</code> (a <code>serve.users</code> entry), <code>admin</code> (<code>serve.api_secret</code>) or <code>dashboard</code> (<code>serve.dashboard.key</code>). Identity, not capability - read the grant fields for what the API key may do.</td>
+</tr>
+<tr>
+<td><code>services</code></td>
+<td>The effective allowlist, the global list intersected with the API key's. <code>null</code> means unrestricted; <code>[]</code> means the API key reaches no service route at all.</td>
+</tr>
+<tr>
+<td><code>server_cdm</code>, <code>server_accounts</code></td>
+<td><code>false</code>, <code>true</code>, or the list of service tags the grant covers.</td>
+</tr>
+<tr>
+<td><code>server_cdm_max_height</code></td>
+<td>The configured limit on live server CDM licences: a height, a map of service tag to height, or <code>null</code> for no limit.</td>
+</tr>
+<tr>
+<td><code>server_proxy</code></td>
+<td>Boolean. Only a literal <code>true</code> grants it, and an API key with no <code>users</code> entry does not get it.</td>
+</tr>
+<tr>
+<td><code>rate_limit</code></td>
+<td>Requests per hour, from the API key's own value or its tier's. <code>null</code> means no limit.</td>
+</tr>
+<tr>
+<td><code>window_used</code></td>
+<td>Requests counted in the current hourly window.</td>
+</tr>
+<tr>
+<td><code>rejected</code></td>
+<td>Responses of 400 or worse that the server attributes to this API key, 429s included. The global <code>requests_rejected</code> stays 401-only.</td>
+</tr>
+<tr>
+<td><code>bytes_out</code></td>
+<td>Response bodies only. An event stream reports no body length, so it counts as zero.</td>
+</tr>
+<tr>
+<td><code>last_seen</code></td>
+<td><code>null</code> until the API key makes its first request.</td>
+</tr>
+</tbody>
+</table>
+<p>Only a configured API key gets a row of counters. A request on an open route such as <code>/api/health</code> with an unknown key counts as <code>anonymous</code>, so an unauthenticated caller cannot grow the table.</p>
+<p>Every API key the server counts has a row here, the dashboard key included, so a
+<code>requests_by_key</code> bucket other than <code>anonymous</code> always matches one. A "traffic by key" panel
+reads the rows here, which are unambiguous, and takes <code>anonymous</code> from <code>requests_by_key</code>. Read
+<code>role</code> before you draw the bars: the <code>dashboard</code> row is the panel measuring its own polling.</p>
+<p>The dashboard key gets <code>services: []</code> and no grants unless the operator also gave it a
+<code>serve.users</code> entry, because it reaches nothing outside <code>/api/dashboard/</code>. An API key listed
+in more than one place still gets exactly one row.</p>
+<h3 id="rate-limits">Rate limits<a class="headerlink" href="#rate-limits" title="Permanent link">&para;</a></h3>
+<p>An API key over its limit gets <code>429</code> with a <code>Retry-After</code> header:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">serve</span><span class="p">:</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">tiers</span><span class="p">:</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">bot</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> rate_limit</span><span class="p">:</span><span class="w"> </span><span class="nv">600</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w">   </span><span class="c1"># requests per hour</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">users</span><span class="p">:</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="s">"&lt;api</span><span class="nv"> </span><span class="s">key&gt;"</span><span class="p p-Indicator">:</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bot-relay</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bot</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="c1"># rate_limit: 900        # optional, wins over the tier</span>
+</span></code></pre></div>
+<p>The server keeps a fixed window, not a sliding one: it opens on the first request and resets
+an hour later. An API key with no tier and no override has no limit. A <code>tier</code> that names no
+entry under <code>serve.tiers</code>, or a <code>rate_limit</code> that is not a positive whole number, stops the
+server at startup, because the alternative is an API key that silently gets no limit. The rate
+limit never applies to the dashboard key, and never to <code>/api/health</code>.</p>
+<h2 id="services">Services<a class="headerlink" href="#services" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>GET /api/dashboard/services
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>[{"tag": "EXAMPLE", "state": "staged", "error": null,
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  "commit": "9cc230c98f13b83f6c6fe831595b9702d3ba2786", "staged_commit": "5f0aa17...",
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  "staged_since": 1756908900.0, "sessions": 1, "jobs": 1,
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  "aliases": ["EXMPL"], "geofence": ["US"], "geoblock": []}]
+</span></code></pre></div>
+<p>The list holds only the services configured on this server:</p>
+<ol>
+<li>The global <code>serve.services</code> list, when it is set.</li>
+<li>Else, the union of the <code>services</code> lists of all keys in <code>serve.users</code>.</li>
+<li>Else, every installed service.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">The union does not show what every API key can reach</p>
+<p>An API key with no <code>services</code> list can use every service, but it does not add to the union. The
+<code>api_secret</code> API key is the same. So with <code>k1: {services: [A]}</code> and a <code>k2</code> with no list, the
+list shows only <code>A</code>. To list every service, remove the <code>services</code> lists or set
+<code>serve.services</code>.</p>
+</div>
+<p><code>GET /api/dashboard/services?all=1</code> lists every installed service. <code>/status</code> always counts
+only the configured services.</p>
+<p>A configured tag that names no installed service does not show. Name a service by its tag: an
+alias resolves only for a service that imported.</p>
+<p><code>state</code> is <code>loaded</code>, <code>staged</code> or <code>failed</code>. A service that failed to import keeps its error
+here instead of disappearing, and <code>/status</code> still counts it in the service total - count the
+<code>state</code> values here for the number that loaded.</p>
+<p>A <code>staged</code> service has an update on disk that a busy service blocks from the import: the repo
+pull already happened, so <code>commit</code> (what runs now) and <code>staged_commit</code> (what waits) differ. It swaps in when the last job and the last remote session for that tag finish. Both commits are <code>null</code>
+for a service from a plain local directory rather than a git repo.</p>
+<p>Watch the <code>service</code> event rather than polling for the swap.</p>
+<h2 id="health">Health<a class="headerlink" href="#health" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>GET /api/dashboard/health
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>{"generated_at": 1756909350.4, "status": "ok",
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a> "checks": [{"id": "ffmpeg", "label": "ffmpeg", "status": "ok",
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>             "detail": "7.1 · /usr/bin/ffmpeg", "ms": 4.1}]}
+</span></code></pre></div>
+<p>An instance can answer every request and still fail every download, because <code>mp4decrypt</code> is
+missing or a vault's credentials expired. This finds that before a job does.</p>
+<p><code>status</code> is <code>ok</code>, <code>degraded</code> (an optional dependency is missing) or <code>failing</code> (a required one
+is). Player binaries are not checked: a headless server never has one and it plays nothing.
+Each check is <code>ok</code>, <code>warn</code> or <code>fail</code>. Check ids are the binary names, <code>cdm</code>,
+<code>vault:&lt;name&gt;</code> (the vault's configured <code>name</code>, so two vaults of the same type stay apart),
+<code>bad_keys</code> and <code>proxies</code>. <code>bad_keys</code> warns when the vaults hold no <code>SQLite</code> entry, because only
+that backend stores the flag for a content key a remote client proved wrong; without it the
+server serves the same bad pair again.</p>
+<p>The server caches the result for 30 seconds and keeps every probe shallow: a vault answers one
+lookup that should miss, and no probe allocates anything. A failing probe's <code>detail</code> has the
+vault's password or token masked. This is a panel, not a liveness probe - do not poll it faster
+than the cache: every refresh that the cache does not answer costs one real lookup against each
+configured vault, which a vault that meters or rate limits its callers will count.</p>
+<div class="admonition warning">
+<p class="admonition-title">An unreachable vault costs a slow, partial answer</p>
+<p>The probes run one after another, so a cold read takes as long as the probes that finish
+inside the deadline. The endpoint gives up after 15 seconds and answers with the checks that
+did complete, plus one <code>probe</code> check with the status <code>fail</code> naming how many finished. A
+database vault that accepts the connection and then stalls is what this deadline is for: its
+driver applies no timeout of its own, so without one the request would never answer.</p>
+<p>The probe that timed out keeps running in its thread until its driver returns, and the
+server caches the partial answer for the full 30 seconds, so callers cannot stack up more
+of them. A second caller waits behind the first, because the server shares one refresh
+rather than running it twice.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Proxy providers are only checked at construction</p>
+<p>The proxy check builds each proxy provider but never asks it for a proxy, because for some
+proxy providers that allocates a connection. A proxy provider that only fails on its first
+real use still reads <code>ok</code>.</p>
+</div>
+<h2 id="counters-reset-on-restart">Counters reset on restart<a class="headerlink" href="#counters-reset-on-restart" title="Permanent link">&para;</a></h2>
+<p>Stats, the log ring and the event history are all in memory. A restart drops every number to
+zero. <code>started_at</code> in the <code>stats</code> frame (with <code>version</code> and <code>code_hash</code>) is the signal: it
+arrives in the first frame after a reconnect, so a dashboard can tell a restart from a bug
+without any extra field.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../job-lifecycle/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Job Lifecycle">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Job Lifecycle
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../remote-sessions/" class="md-footer__link md-footer__link--next" aria-label="Next: Remote Sessions">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Remote Sessions
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
